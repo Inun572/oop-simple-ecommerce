@@ -18,6 +18,7 @@ export default class Product {
       console.log(`Name: ${this.name}`);
       console.log(`Price: ${moneyFormatter(this.price)}`);
       console.log(`Description: ${this.description}`);
+      console.log(`Category: ${this.category}`);
       console.log(`Status: Active\n`);
     } else {
       console.log(`Product not found\n`);
