@@ -53,7 +53,7 @@ export default class Category {
       `All products in ${this.name}:\n----------------------------------`
     );
     this.products.forEach((product, index) => {
-      console.log(`${index + 1}. ${product.name}`);
+      console.log(`${index + 1}. ${product.name}\n`);
     });
   }
 }
