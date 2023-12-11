@@ -44,7 +44,7 @@ product1.displayInfo();
 
 Example output:
 
-```json
+```js
 Product Id: PPSJNdV4u
 Name: Close Up
 Price: Rp 5.000,00
@@ -234,6 +234,52 @@ The output:
 ```js
 List of items in cart:
 ----------------------
+┌────────────────────┬────────────────────┬─────┬────────────────────┐
+│        Name        │       Price        │ Qty │       Total        │
+├────────────────────┼────────────────────┼─────┼────────────────────┤
+│      Colgate       │    Rp 5.000,00     │  2  │       Rp 10.000,00 │
+├────────────────────┼────────────────────┼─────┼────────────────────┤
+│        Taro        │    Rp 8.000,00     │  2  │       Rp 16.000,00 │
+├────────────────────┴────────────────────┴─────┼────────────────────┤
+│                                         Total │       Rp 31.000,00 │
+├───────────────────────────────────────────────┼────────────────────┤
+│                                   Total Items │                  2 │
+└───────────────────────────────────────────────┴────────────────────┘
+```
+
+### Order Class
+
+> **Create Order**
+
+Before doing a purchase, we should create an Order, by using `new` keyword to create new object from order class, which is used to provide the items from cart.
+
+```js
+const order1 = new Order();
+```
+
+> **Create Order by adding a cart**
+
+Adding a cart to order before paying the bill, by using `createOrder()` method, passing a `cart` object to its argument
+
+```js
+order1.createOrder(cart1);
+```
+
+> **Display the Order Details**
+
+We could display our Order with `displayOrderDetails()`.
+
+```js
+order1.displayOrderDetails();
+```
+
+The output:
+
+```js
+Order ID: OMQuiQkjY
+Total Items: 3
+Details order:
+-----------------
 ┌────────────────────┬────────────────────┬─────┬────────────────────┐
 │        Name        │       Price        │ Qty │       Total        │
 ├────────────────────┼────────────────────┼─────┼────────────────────┤
