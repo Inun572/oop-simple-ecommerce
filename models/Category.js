@@ -50,10 +50,10 @@ export default class Category {
 
   getAllProducts() {
     console.log(
-      `All products in ${this.name}:\n----------------------------------`
+      `All products in ${this.name}:\n------------------------------`
     );
     this.products.forEach((product, index) => {
-      console.log(`${index + 1}. ${product.name}\n`);
+      console.log(`${index + 1}. ${product.name}`);
     });
   }
 }

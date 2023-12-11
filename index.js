@@ -1,7 +1,8 @@
 import Product from './models/Product.js';
 import Category from './models/Category.js';
 
-import { Cart } from './models/Cart.js';
+import Cart from './models/Cart.js';
+import Order from './models/Order.js';
 
 // Example usage
 
@@ -57,3 +58,14 @@ cart1.addItem(product4);
 cart1.addItem(product4);
 
 cart1.viewCart();
+cart1.removeItem('Frestea');
+cart1.viewCart();
+
+// create new order
+const order1 = new Order();
+
+// add item in cart to order
+order1.createOrder(cart1);
+
+// display order details
+order1.displayOrderDetails();

@@ -3,32 +3,31 @@ import Table from 'cli-table3';
 
 import { moneyFormatter } from '../libs/formatter.js';
 
-export class Cart {
+export default class Cart {
   constructor() {
     this.id = 'K' + faker.string.nanoid(8);
     this.items = [];
-    this.totalItems = this.items.length;
+    this.totalItems = 0;
     this.totalPrice = 0;
   }
 
-  addItem(item) {
+  addItem(item, quantity = 1) {
     if (item.isActive) {
       const { name, price } = item;
-      let qty = 1;
-
       const isContained = this.items.some((item) => item.name === name);
       if (isContained) {
         const index = this.items.findIndex((item) => item.name === name);
-        this.items[index].qty += 1;
+        this.items[index].qty += quantity;
         this.items[index].total = price * this.items[index].qty;
       } else {
         this.items.push({
           name,
           price: price,
-          qty: qty,
-          total: price * qty,
+          qty: quantity,
+          total: price * quantity,
         });
       }
+      this.totalItems = this.items.length;
       this.totalPrice = this.items.reduce(
         (total, item) => total + item.total,
         0
@@ -41,7 +40,7 @@ export class Cart {
   }
 
   removeItem(name) {
-    const index = this.items.findIndex((item) => item === name);
+    const index = this.items.findIndex((item) => item.name === name);
     this.items.splice(index, 1);
     console.log(`Item removed from cart successfully\n`);
   }
