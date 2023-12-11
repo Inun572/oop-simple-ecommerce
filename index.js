@@ -52,19 +52,21 @@ const cart1 = new Cart();
 
 // add item to cart
 
-cart1.addItem(product1);
+cart1.addItem(product1, 2);
+cart1.addItem(product2, 1);
 cart1.addItem(product3);
-cart1.addItem(product4);
-cart1.addItem(product4);
+cart1.addItem(product4, 2);
 
 cart1.viewCart();
+
+// remove item from cart
 cart1.removeItem('Frestea');
 cart1.viewCart();
 
-// create new order
+// Instantiate new order
 const order1 = new Order();
 
-// add item in cart to order
+// add item in cart to order with parameter format (cart name)
 order1.createOrder(cart1);
 
 // display order details
