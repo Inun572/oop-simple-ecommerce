@@ -31,6 +31,7 @@ Instead using keyword `new` to instantiate object from `Product` class, we could
 
 ```js
 const product1 = Product.createProduct('name', price, 'description');
+const product2 = Product.createProduct('Doritos', 12000, 'snack');
 ```
 
 > **Display Info Product**
@@ -65,13 +66,13 @@ product1.updatedProduct('Colgate', 5000, 'toothpaste');
 We also can delete a product by change its isActive attribute to false by using `deleteProduct()`.
 
 ```js
-product1.deleteProduct();
+product2.deleteProduct();
 ```
 
 If we try to access a Product with `displayProdut()`, which has been deleted, detail of product can not be shown.
 
 ```js
-product1.displayInfo();
+product2.displayInfo();
 
 The output:
 Product not found.
@@ -180,3 +181,68 @@ All products in beverages:
 ```
 
 ### Cart Class
+
+> **Create a Cart**
+
+We could use `new` keyword to instantiate an object from Cart class.
+
+```js
+const cart1 = new Cart();
+```
+
+> **Add item to a cart**
+
+Adding product or item, we could use `addItem()` method, following by `productName` and `quantity` you want to add to the cart.
+
+```js
+cart1.addItem(product1, 2);
+cart1.addItem(product2, 1);
+cart1.addItem(product3); // Default quantity is 1
+cart1.addItem(product4, 2);
+```
+
+The output:
+
+```js
+Item added to cart successfully
+
+Item not found. Fail to add to cart // Product2 has been deleted
+
+Item added to cart successfully
+
+Item added to cart successfully
+```
+
+> **Remove item from cart**
+
+We could use `removeItem()` to remove item or product from a cart with passing `productName` as an argument.
+
+```js
+cart1.removeItem('Frestea');
+```
+
+> **View all item in cart**
+
+Using `viewCart()` method to view all item in a cart.
+
+```js
+cart1.viewCart();
+```
+
+The output:
+
+```js
+List of items in cart:
+----------------------
+┌────────────────────┬────────────────────┬─────┬────────────────────┐
+│        Name        │       Price        │ Qty │       Total        │
+├────────────────────┼────────────────────┼─────┼────────────────────┤
+│      Colgate       │    Rp 5.000,00     │  2  │       Rp 10.000,00 │
+├────────────────────┼────────────────────┼─────┼────────────────────┤
+│        Taro        │    Rp 8.000,00     │  2  │       Rp 16.000,00 │
+├────────────────────┴────────────────────┴─────┼────────────────────┤
+│                                         Total │       Rp 31.000,00 │
+├───────────────────────────────────────────────┼────────────────────┤
+│                                   Total Items │                  2 │
+└───────────────────────────────────────────────┴────────────────────┘
+```
