@@ -19,6 +19,7 @@ product1.updatedProduct('Colgate', 5000, 'toothpaste');
 
 // delete product set isActive property value to false
 product2.deleteProduct();
+product2.displayInfo();
 
 // Instantiate categories with parameters format (name)
 const category1 = Category.createCategory('homecare');
@@ -36,15 +37,18 @@ category1.deleteCategory();
 
 category1.displayInfo();
 
-// add product to category must have parameter format (product)
+// we create some products
 const product3 = Product.createProduct('Frestea', 5000, 'drinks');
 const product4 = Product.createProduct('Taro', 8000, 'snack');
 
+// add product to category must have parameter format (productName)
+category1.addProduct(product1);
 category2.addProduct(product2);
 category2.addProduct(product3);
 category2.addProduct(product4);
 
 // get all products from category
+category1.getAllProducts();
 category2.getAllProducts();
 
 // instantiate cart
